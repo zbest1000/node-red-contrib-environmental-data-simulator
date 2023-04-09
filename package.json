@@ -1,11 +1,15 @@
 
 {
   "name": "node-red-contrib-environmental-data-simulator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The Environmental Data Simulator node in Node-RED simulates data from a variety of environmental sensors commonly used in IoT (Internet of Things) and IIoT (Industrial Internet of Things) applications. The node generates random values within specified ranges for different sensor data points, including temperature, humidity, pressure, air quality, light intensity, soil moisture, water temperature, wind speed, and more. The values gradually ramp up or down in a realistic manner, with randomness introduced in the increment step. This node is useful for testing and developing environmental monitoring applications without the need for physical sensors. It can also be used for demonstration purposes to showcase data-driven applications.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zbest1000/node-red-contrib-environmental-data-simulator.git"
   },
   "keywords": [
     "node-red",
@@ -18,7 +22,18 @@
       "environmental-data-simulator": "environmental-data-simulator.js"
     }
   },
+  "engines": {
+    "node": ">=14.0.0",  // Minimum supported Node.js version
+    "node-red": ">=2.0.0" // Minimum supported Node-RED version
+  },
+  "bugs": {
+    "url": "https://github.com/zbest1000/node-red-contrib-environmental-data-simulator/issues"
+  },
   "author": "Bismark Aguocha",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    // Node. this node uses the node-red funtion node which comes with every node-red instance
+  }
 }
+
 
