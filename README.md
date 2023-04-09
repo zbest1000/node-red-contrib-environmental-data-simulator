@@ -48,14 +48,14 @@ Example of the output payload:
 }
 
 To access individual sensor data points in a subsequent function node, use the msg.payload property followed by the key representing the desired sensor data point. For example:
-`
- - 
+
+ 
 var temperature = msg.payload["Temperature °F"];
- - 
+ 
 var humidity = msg.payload["Humidity %"];
- - 
+ 
 var airQuality = msg.payload["Air Quality AQI"];
- `
+ 
 ## **Notes**
 The value ranges and sensor data points can be customized within the node's code.
  - The Environmental Data Simulator node uses context variables to retain state between runs, allowing values to ramp up and down in a dynamic manner.
