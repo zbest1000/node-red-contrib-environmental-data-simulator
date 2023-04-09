@@ -23,8 +23,8 @@
     }
   },
   "engines": {
-    "node": ">=14.0.0",  // Minimum supported Node.js version
-    "node-red": ">=2.0.0" // Minimum supported Node-RED version
+    "node": ">=14.0.0", 
+    "node-red": ">=2.0.0" 
   },
   "bugs": {
     "url": "https://github.com/zbest1000/node-red-contrib-environmental-data-simulator/issues"
@@ -32,7 +32,7 @@
   "author": "Bismark Aguocha",
   "license": "MIT",
   "dependencies": {
-    // Node. this node uses the node-red funtion node which comes with every node-red instance
+   
   }
 }
 
