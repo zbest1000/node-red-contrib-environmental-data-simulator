@@ -1,0 +1,73 @@
+
+    "id": "9d46379721607de5",
+    "type": "subflow",
+    "name": "Environmental Data Simulator",
+    "info": "This is a Number Generator",
+    "flow": [
+        {
+            "id": "9d46379721607de5",
+            "type": "function",
+            "name": "Data Gen",
+            "func":"// Function to produce ramping values within a specified range\nfunction rampValue(contextVar, min, max) {\n    // Get the last value and direction from context variables\n    let value = context.get(contextVar) || min;\n    let direction = context.get(contextVar + \"Direction\") || 1;\n\n  
+// Generate a random step within the range 0-10\n
+let step = Math.floor(Math.random() * 11);\n\n
+
+// Calculate the next value\n
+value += direction * step;\n
+  if (value >= max || value <= min) {\n
+       direction *= -1; // Reverse direction when reaching limits\n    }\n\n
+
+// Keep value within bounds\n
+value = Math.max(min, Math.min(max, value));\n\n
+
+ // Store the updated value and direction in context variables\n
+context.set(contextVar, value);\n
+context.set(contextVar + \"Direction\", direction);\n\n
+return value;\n}\n\n
+
+// Generate the next environment metrics with units\n
+const temp = rampValue(\"temp\", -50, 500); // Temperature range: -50°F to 500°F\n
+const hum = rampValue(\"hum\", 1, 100); // Humidity range: 1% to 100%\n
+const pre = rampValue(\"pre\", 10, 1050); // Pressure range: 10 Psi to 1050 Psi\n\n
+
+// Additional sensor data points\n
+const lightIntensity = rampValue(\"lightIntensity\", 0, 10000); // Light Intensity range: 0 Lux to 10000 Lux\n
+const airQuality = rampValue(\"airQuality\", 0, 500); // Air Quality range: 0 AQI to 500 AQI\n
+const soilMoisture = rampValue(\"soilMoisture\", 0, 100); // Soil Moisture range: 0% to 100%\n
+const waterTemperature = rampValue(\"waterTemperature\", 32, 212); // Water Temperature range: 32°F to 212°F\n
+const windSpeed = rampValue(\"windSpeed\", 0, 150); // Wind Speed range: 0 mph to 150 mph\n
+const windDirection = rampValue(\"windDirection\", 0, 360); // Wind Direction range: 0° to 360°\n
+const barometricPressure = rampValue(\"barometricPressure\", 27, 31); // Barometric Pressure range: 27 inHg to 31 inHg\n
+const precipitation = rampValue(\"precipitation\", 0, 5); // Precipitation range: 0 in/hr to 5 in/hr\n
+const co2Concentration = rampValue(\"co2Concentration\", 400, 5000); // CO2 Concentration range: 400 ppm to 5000 ppm\n
+const vocConcentration = rampValue(\"vocConcentration\", 0, 1000); // VOC Concentration range: 0 ppb to 1000 ppb\n\n
+// Update the payload with the environment metrics and additional sensor data points\n
+ var Enviromental = {\n    
+\"Temperature °F\": temp,\n
+ \"Humidity %\": hum,\n
+  \"Pressure Psi\": pre,\n
+   \"Light Intensity Lux\": lightIntensity,\n
+    \"Air Quality AQI\": airQuality,\n
+     \"Soil Moisture %\": soilMoisture,\n
+      \"Water Temperature °F\": waterTemperature,\n
+       \"Wind Speed mph\": windSpeed,\n
+        \"Wind Direction °\": windDirection,\n
+         \"Barometric Pressure inHg\": barometricPressure,\n
+          \"Precipitation in/hr\": precipitation,\n
+           \"CO2 Concentration ppm\": co2Concentration,\n
+            \"VOC Concentration ppb\": vocConcentration\n};\n
+msg.payload = Enviromental\n
+return msg;,
+            "outputs": 1,
+            "noerr": 0,
+            "initialize": "",
+            "finalize": "",
+            "libs": [],
+            "x": 340,
+            "y": 160,
+            "wires": [
+                []
+            ]
+        }
+    ]
+}

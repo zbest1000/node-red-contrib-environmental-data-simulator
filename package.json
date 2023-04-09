@@ -1,0 +1,24 @@
+
+{
+  "name": "node-red-contrib-environmental-data-simulator",
+  "version": "1.0.1",
+  "description": "The Environmental Data Simulator node in Node-RED simulates data from a variety of environmental sensors commonly used in IoT (Internet of Things) and IIoT (Industrial Internet of Things) applications. The node generates random values within specified ranges for different sensor data points, including temperature, humidity, pressure, air quality, light intensity, soil moisture, water temperature, wind speed, and more. The values gradually ramp up or down in a realistic manner, with randomness introduced in the increment step. This node is useful for testing and developing environmental monitoring applications without the need for physical sensors. It can also be used for demonstration purposes to showcase data-driven applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node-red",
+    "environmental",
+    "data",
+    "simulator"
+  ],
+  "node-red": {
+    "nodes": {
+      "environmental-data-simulator": "environmental-data-simulator.js"
+    }
+  },
+  "author": "Bismark Aguocha",
+  "license": "MIT"
+}
+
